@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aida.exe 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .box {
+      background: #020617;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+      max-width: 520px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    h2 {
+      color: #f472b6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #ec4899;
+      color: white;
+    }
+
+    button:hover {
+      background: #db2777;
+    }
+
+    .secondary {
+      background: #334155;
+      margin-left: 10px;
+      cursor: not-allowed;
+    }
+
+    .code {
+      display: none;
+      margin-top: 24px;
+      color: #f9a8d4;
+      text-align: left;
+    }
+
+    .final {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #fb7185;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ec4899;
+      font-size: 18px;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>💻 Running Aida.exe</h2>
+    <p>Status: Awaiting Valentine confirmation…</p>
+
+    <button onclick="reveal()">Run Code</button>
+
+    <div class="code" id="code">
+<pre>
+const valentine = {
+  name: "Aida",
+  date: "February 14",
+  question: "Will you be my Valentine?",
+};
+
+if (valentine.name === "Aida") {
+  answer = "❤️ YES ❤️";
+}
+</pre>
+
+      <button onclick="confirm()">Accept ❤️</button>
+      <button class="secondary">Decline ❌</button>
+    </div>
+
+    <div class="final" id="final">
+      💘 Valentine confirmed 💘  
+      <br><br>
+      See you on February 14, Aida ❤️
+    </div>
+  </div>
+
+  <script>
+    function reveal() {
+      document.getElementById("code").style.display = "block";
+    }
+
+    function confirm() {
+      document.getElementById("final").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
